@@ -1,0 +1,18 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    prenom: <input type="text" v-model="firstname" /></br>
+    </div>
+    <script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+        firstname: "Vincent",
+        },
+    });
+    </script>
+</body>
+</html>

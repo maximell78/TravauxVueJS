@@ -9,20 +9,26 @@
 </head>
 <body>
     <div id="app">
-        {{ messageToUpperCase }}
-        {{ boom }}
+        {{ titre }}
+        {{ fname }}
+        {{ lname }}
+        {{ message }}
     </div>
 </body>
 <script>
     const vm = new Vue({
         el: "#app",
+        template: `<div><h1>Prénom: {{fname}}</h1>
+                    <h1>Nom de famille : {{lname}}</h1>
+                    <h1></h1>`,
         data: {
-            message: "Allo mon coco",
-            boom: "Ceci est une bombe"
+            titre: "Le premier Avenger",
+            fname: "Steve",
+            lname: "Rogers"
         },
         methods:{
-            messageToUpperCase: function(){
-                return this.message.toUpperCase();
+            details: function(){
+                return `Je suis $this.fname $this.lname`;
             }
         }
     });
