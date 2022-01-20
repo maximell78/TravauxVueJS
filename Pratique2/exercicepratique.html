@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr-ca">
+<head>
+    <meta charset="utf-8" />
+    <title>Manipulation de vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1>Utilisation de v-on</h1>
+    <div id="app">        
+        <p>            
+            
+            <input type="button" value="click" v-on:click="peseClick" />
+            {{nombreClick}}
+        </p>
+    </div>
+    <script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            nombreClick: 0,
+        },
+        methods: {
+        peseClick: function () {
+            return this.nombreClick++;
+        },
+        },
+    });
+    </script>
+</body>
+</html>

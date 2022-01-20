@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-ca">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Exercice Formatif</title>
+</head>
+<body>
+    <div id="app">
+        <todo-list></todo-list>
+        <todo></todo>
+        <todo-edit></todo-edit>
+    </div>
+</body>
+<script>
+    var todoEdit = {
+        template: `<div>
+                        <input type="text" id="title" placeholder="Titre de la tâche" v-model="montodo.title"/>
+                        <input type="text" id="project" placeholder="Nom du projet" v-model="montodo.project"/>
+                        <input type="submit" value="ajouter une tâche" v-on:click="mamethode"/>
+                    </div>`,
+        data: function(){
+            return {
+                montodo:{
+                    title:"test",
+                    project:"test",
+                },
+            };
+        },
+        methods:{
+            mamethode: function(){
+                alert(`Titre de la tâche ${this.montodo.title} Projet : ${this.montodo.project}`)
+            }
+        }
+    };
+    var todo = {
+        template: `<div>{{title}} {{project}}</div>`,
+        data: function(){
+            return {
+                title: "Toda A",
+                project: "Projet A",
+                done: false,
+            };
+        }
+    };
+    var todoList = {
+        template:  `<div>
+                        <ul v-for="todo in todos">
+                            <li>
+                                {{todo.title}}
+                            </li>
+                        </ul>
+                    </div>`,
+        data: function() {
+            return { todos: [
+                {
+                title: "Todo A",
+                project: "Project A",
+                done: false,
+                },
+                {
+                title: "Todo B",
+                project: "Project B",
+                done: true,
+                },
+                {
+                title: "Todo C",
+                project: "Project C",
+                done: false,
+                },
+            ]};
+        },
+    };
+
+    var vm = new Vue({
+        el: "#app",        
+        data: {
+            
+        },
+        components: {
+            TodoList: todoList,
+            Todo: todo,
+            TodoEdit: todoEdit,
+        }
+    });
+</script>
+</html>
